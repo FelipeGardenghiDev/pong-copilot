@@ -4,7 +4,6 @@ let computadorImagem;
 let fundoImagem;
 let quicarSom;
 let golSom;
-
 let pontosJogador = 0;
 let pontosComputador = 0;
 
@@ -120,11 +119,10 @@ function colideRetanguloCirculo(cx, cy, raio, x, y, w, h) {
 }
 
 
-
-
 let bola;
 let jogador;
 let computador;
+
 
 function falaPontos() {
     // use speechapi
@@ -138,12 +136,12 @@ function falaPontos() {
 }
 
 function preload() {
-    bolaImagem = loadImage('bola.png');
-    jogadorImagem = loadImage('barra01.png');
-    computadorImagem = loadImage('barra02.png');
-    fundoImagem = loadImage('fundo2.png');
-    quicarSom = loadSound('446100__justinvoke__bounce.wav');
-    golSom = loadSound('274178__littlerobotsoundfactory__jingle_win_synth_02.wav');
+    bolaImagem = loadImage('./src/bola.png');
+    jogadorImagem = loadImage('./src/barra01.png');
+    computadorImagem = loadImage('./src/barra02.png');
+    fundoImagem = loadImage('./src/fundo2.png');
+    quicarSom = loadSound('./src/446100__justinvoke__bounce.wav');
+    golSom = loadSound('./src/274178__littlerobotsoundfactory__jingle_win_synth_02.wav');
 }
 
 function setup() {
@@ -154,8 +152,7 @@ function setup() {
 }
 
 function draw() {
-    
-    // centralized fundoImagem, with canvas aspectRatio, and zoom out as maximun as possible
+    // centralized fundoImagem, with canvas aspectRatio, and zoom out as maximum as possible
     let canvasAspectRatio = width / height;
     let fundoAspectRatio = fundoImagem.width / fundoImagem.height;
     let zoom = 1;
@@ -167,7 +164,6 @@ function draw() {
     let scaledWidth = fundoImagem.width * zoom;
     let scaledHeight = fundoImagem.height * zoom;
     image(fundoImagem, (width - scaledWidth) / 2, (height - scaledHeight) / 2, scaledWidth, scaledHeight);
-    
 
     bola.update();
     bola.desenha();
